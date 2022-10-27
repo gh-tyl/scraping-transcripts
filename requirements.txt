@@ -1,0 +1,4 @@
+fpdf
+selenium
+packaging
+webdriver-manager

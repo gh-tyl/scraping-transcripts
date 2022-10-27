@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  api:
+    container_name: scraping-transcript
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .${WORKDIR}:${WORKDIR}
+    command: "/bin/bash"
+    env_file:
+      - ./.env
+    environment:
+      WORKDIR: ${WORKDIR}
+      PYTHONUNBUFFERED: ${PYTHONUNBUFFERED}
+      PYTHONIOENCODING: ${PYTHONIOENCODING}
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
